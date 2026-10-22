@@ -1,0 +1,91 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"cdkfxHdr01\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>CorpDK FX</b></span>\",\"col\":12}},{\"id\":\"cdkfxSp01\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"cdkfxSh01\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"FX Rates\",\"col\":4}},{\"id\":\"cdkfxSh02\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CorpDK FX Pair\",\"col\":4}}]",
+ "creation": "2026-10-04 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "money-coins-1",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "CorpDK FX",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rates & pairs",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "FX Rates",
+   "link_count": 0,
+   "link_to": "corpdk-fx-rates",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "CorpDK FX Pair",
+   "link_count": 0,
+   "link_to": "CorpDK FX Pair",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ERPNext",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Currency Exchange",
+   "link_count": 0,
+   "link_to": "Currency Exchange",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-10-04 00:00:00.000000",
+ "module": "CorpDK FX",
+ "name": "CorpDK FX",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 25.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "label": "FX Rates",
+   "link_to": "corpdk-fx-rates",
+   "type": "Page"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "CorpDK FX Pair",
+   "link_to": "CorpDK FX Pair",
+   "type": "DocType"
+  }
+ ],
+ "title": "CorpDK FX"
+}

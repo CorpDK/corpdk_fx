@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CorpDK FX">
+  <rect width="64" height="64" rx="13" fill="#0f2035"/>
+  <defs>
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&amp;display=swap");
+      .fx-glyph {
+        font-family: "Noto Sans", "Segoe UI Symbol", "Apple Symbols", system-ui, -apple-system,
+          "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        dominant-baseline: central;
+      }
+      .fx-label {
+        font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 0.04em;
+        dominant-baseline: auto;
+      }
+    </style>
+  </defs>
+  <g transform="translate(0 -4)">
+  <!-- row 1: $ € £ -->
+  <text class="fx-glyph" y="21">
+    <tspan x="12" fill="#6ee7a8">$</tspan>
+    <tspan x="28" fill="#60a5fa">€</tspan>
+    <tspan x="44" fill="#c4b5fd">£</tspan>
+  </text>
+  <!-- row 2: ¥ ₹ -->
+  <text class="fx-glyph" y="37">
+    <tspan x="12" fill="#f87171">¥</tspan>
+    <tspan x="28" fill="#fb923c">₹</tspan>
+  </text>
+  <!-- live-rate sparkline: green up, red down -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85">
+    <path d="M5 54 L10 50" stroke="#5ecf8a"/>
+    <path d="M10 50 L15 52" stroke="#f87171"/>
+    <path d="M15 52 L20 46" stroke="#5ecf8a"/>
+    <path d="M20 46 L25 49" stroke="#f87171"/>
+    <path d="M25 49 L30 44" stroke="#5ecf8a"/>
+  </g>
+  <text class="fx-label" x="59" y="58" text-anchor="end" fill="#e8b84a">FX</text>
+  </g>
+</svg>

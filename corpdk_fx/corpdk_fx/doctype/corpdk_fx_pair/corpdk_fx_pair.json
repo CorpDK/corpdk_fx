@@ -1,0 +1,184 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:pair_code",
+ "creation": "2026-10-04 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+  "field_order": [
+  "pair_code",
+  "enabled",
+  "from_currency",
+  "to_currency",
+  "provider",
+  "frankfurter_provider_key",
+  "column_break_cfg",
+  "company",
+  "lookback_days",
+  "policy_label",
+  "section_break_invoice",
+  "apply_on_sales_invoice_submit",
+  "require_export_naming",
+  "naming_series_contains",
+  "section_break_cache",
+  "cached_rate",
+  "cached_effective_date",
+  "cached_at",
+  "cached_provider_note"
+ ],
+ "fields": [
+  {
+   "fieldname": "pair_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Pair Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "from_currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "From Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_currency",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "To Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "default": "FBIL Frankfurter",
+   "fieldname": "provider",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Rate Provider",
+   "options": "FBIL Frankfurter\nECB Frankfurter\nFrankfurter Blended\nFrankfurter (provider key)\nCurrency Exchange\nERPNext Default",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.provider=='Frankfurter (provider key)'",
+   "description": "Official source key from Frankfurter GET /v2/providers (e.g. fbil, ecb, rbi). Case-insensitive.",
+   "fieldname": "frankfurter_provider_key",
+   "fieldtype": "Data",
+   "label": "Frankfurter Provider Key"
+  },
+  {
+   "fieldname": "column_break_cfg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company (optional filter)",
+   "options": "Company"
+  },
+  {
+   "default": "14",
+   "description": "Frankfurter: latest rate on or before posting date within this window (FBIL/RBI-style). Uses GET /v2/providers/{key}/rates?from=&to= when same-day is missing.",
+   "fieldname": "lookback_days",
+   "fieldtype": "Int",
+   "label": "Lookback Days"
+  },
+  {
+   "fieldname": "policy_label",
+   "fieldtype": "Data",
+   "label": "Policy Label (audit / remarks)"
+  },
+  {
+   "fieldname": "section_break_invoice",
+   "fieldtype": "Section Break",
+   "label": "Sales Invoice Submit"
+  },
+  {
+   "default": "1",
+   "fieldname": "apply_on_sales_invoice_submit",
+   "fieldtype": "Check",
+   "label": "Apply on Sales Invoice Submit"
+  },
+  {
+   "default": "1",
+   "description": "When set, only export series (e.g. CDK-EXP) invoices get this rate",
+   "fieldname": "require_export_naming",
+   "fieldtype": "Check",
+   "label": "Require Export Naming"
+  },
+  {
+   "default": "CDK-EXP",
+   "fieldname": "naming_series_contains",
+   "fieldtype": "Data",
+   "label": "Naming Series Contains"
+  },
+  {
+   "fieldname": "section_break_cache",
+   "fieldtype": "Section Break",
+   "label": "Cached (dashboard)"
+  },
+  {
+   "fieldname": "cached_rate",
+   "fieldtype": "Float",
+   "label": "Cached Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cached_effective_date",
+   "fieldtype": "Date",
+   "label": "Cached Effective Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cached_at",
+   "fieldtype": "Datetime",
+   "label": "Cached At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cached_provider_note",
+   "fieldtype": "Small Text",
+   "label": "Cached Provider Note",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-04 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CorpDK FX",
+ "name": "CorpDK FX Pair",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Accounts User"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

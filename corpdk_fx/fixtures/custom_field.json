@@ -1,0 +1,56 @@
+[
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "fieldname": "export_usd_inr_policy",
+  "fieldtype": "Data",
+  "insert_after": "conversion_rate",
+  "label": "Export USD/INR Policy",
+  "name": "Sales Invoice-export_usd_inr_policy",
+  "no_copy": 1,
+  "read_only": 1
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "fieldname": "export_usd_inr_effective_date",
+  "fieldtype": "Date",
+  "insert_after": "export_usd_inr_policy",
+  "label": "Export USD/INR FBIL Date",
+  "name": "Sales Invoice-export_usd_inr_effective_date",
+  "no_copy": 1,
+  "read_only": 1
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "fieldname": "export_usd_inr_rate_source",
+  "fieldtype": "Data",
+  "insert_after": "export_usd_inr_effective_date",
+  "label": "Export USD/INR Feed",
+  "name": "Sales Invoice-export_usd_inr_rate_source",
+  "no_copy": 1,
+  "read_only": 1
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice Item",
+  "fieldname": "reimb_inr_amount",
+  "fieldtype": "Float",
+  "insert_after": "amount",
+  "label": "Reimb INR (paid)",
+  "description": "INR outlay at cost; with Reimb FX date, USD rate = INR ÷ FBIL(date X)",
+  "name": "Sales Invoice Item-reimb_inr_amount",
+  "precision": "2"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice Item",
+  "fieldname": "reimb_fx_date",
+  "fieldtype": "Date",
+  "insert_after": "reimb_inr_amount",
+  "label": "Reimb FX date",
+  "description": "Date X for FBIL when converting reimb INR to USD (payment / supplier invoice date)",
+  "name": "Sales Invoice Item-reimb_fx_date"
+ }
+]
