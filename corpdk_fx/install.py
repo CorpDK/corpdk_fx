@@ -51,19 +51,31 @@ CUSTOM_FIELDS: list[dict] = [
 	},
 ]
 
-DEFAULT_PAIR = {
-	"pair_code": "USD-INR",
-	"enabled": 1,
-	"from_currency": "USD",
-	"to_currency": "INR",
-	"provider": "FBIL Frankfurter",
-	"company": "CorpDK",
-	"lookback_days": 14,
-	"policy_label": "FBIL USD/INR reference (Rule 34(2) export services)",
-	"apply_on_sales_invoice_submit": 1,
-	"require_export_naming": 1,
-	"naming_series_contains": "CDK-EXP",
-}
+DEFAULT_PAIR_CODE = "USD-INR"
+
+
+def _default_company_name() -> str | None:
+	company = frappe.defaults.get_global_default("company")
+	if company and frappe.db.exists("Company", company):
+		return company
+	names = frappe.get_all("Company", pluck="name", limit=1)
+	return names[0] if names else None
+
+
+def _default_pair_fields(company: str) -> dict:
+	return {
+		"pair_code": DEFAULT_PAIR_CODE,
+		"enabled": 1,
+		"from_currency": "USD",
+		"to_currency": "INR",
+		"provider": "FBIL Frankfurter",
+		"company": company,
+		"lookback_days": 14,
+		"policy_label": "FBIL USD/INR reference (Rule 34(2) export services)",
+		"apply_on_sales_invoice_submit": 1,
+		"require_export_naming": 1,
+		"naming_series_contains": "CDK-EXP",
+	}
 
 
 def _ensure_custom_fields() -> None:
@@ -94,10 +106,13 @@ def _remove_legacy_site_module() -> None:
 
 
 def _ensure_default_pair() -> None:
-	if frappe.db.exists("CorpDK FX Pair", DEFAULT_PAIR["pair_code"]):
+	if frappe.db.exists("CorpDK FX Pair", DEFAULT_PAIR_CODE):
+		return
+	company = _default_company_name()
+	if not company:
 		return
 	doc = frappe.new_doc("CorpDK FX Pair")
-	doc.update(DEFAULT_PAIR)
+	doc.update(_default_pair_fields(company))
 	doc.insert(ignore_permissions=True)
 
 
